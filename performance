@@ -26,25 +26,15 @@ def display_task():
     print("n --- Current To-Do List --- ")
     for priority, task_list in tasks.items():
         print(f"\n{priority} Tasks:")
+        if not task_list:
+            print( " (Empty)")
+        else: 
+            for i, task in enumerate(task_list, 1):
+                print(f" {i} , {task}")
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def 
 
