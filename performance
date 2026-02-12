@@ -1,18 +1,31 @@
-# To‑Do List Manager ---- Add/remove tasks; loop to display; selection for priority.
+# To-Do List for Performance Task
+# Purpose : To organize and prioritize tasks for the Performance Task
 
 
-To-Do_List = {
-
-
-
-
-
+tasks = {
+"incendental" : [],
+"Coordinated": [],
+"Planned" : []
 }
 
 
 
+def add_new_task(task_name, priority):
+    if priority == "1":
+        tasks["incendental"].append(task_name)
+        print (f"Task '{task_name}' added to incendental tasks.")
+    elif priority == "2":
+        tasks["Coordinated"].append(task_name)
+        print (f"Task '{task_name}' added to Coordinated tasks.")
+    elif priority == "3":
+        tasks ["Planned"].append(task_name)
+        print(f"Planned '{task_name}'added to planned tasks")
 
 
+def display_task():
+    print("n --- Current To-Do List --- ")
+    for priority, task_list in tasks.items():
+        print(f"\n{priority} Tasks:")
 
 
 
