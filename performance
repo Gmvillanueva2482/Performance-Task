@@ -3,38 +3,98 @@
 
 
 tasks = {
-"incendental" : [],
+"Incindental" : [],
 "Coordinated": [],
 "Planned" : []
 }
 
-
-
 def add_new_task(task_name, priority):
     if priority == "1":
-        tasks["incendental"].append(task_name)
-        print (f"Task '{task_name}' added to incendental tasks.")
+       tasks["Incidnetal"].append(task_name)
+       print(f"Task '{task_name}' added to Incidental tasks.")
     elif priority == "2":
-        tasks["Coordinated"].append(task_name)
-        print (f"Task '{task_name}' added to Coordinated tasks.")
+       tasks["Coordinated"].append(task_name)
+       print(f"Task '{task_name}' added to Coordinated tasks.")
     elif priority == "3":
-        tasks ["Planned"].append(task_name)
-        print(f"Planned '{task_name}'added to planned tasks")
+       tasks["Planned"].append(task_name)
+       print(f"Task '{task_name}' added to Planned tasks.")
+    else:
+         print("Invalid priority, Please choose 1, 2, or 3.")
 
 
 def display_task():
-    print("n --- Current To-Do List --- ")
+    print("\n--- Current To-Do List ---")
     for priority, task_list in tasks.items():
         print(f"\n{priority} Tasks:")
         if not task_list:
-            print( " (Empty)")
-        else: 
+            print("(Empty)")
+        else:
             for i, task in enumerate(task_list, 1):
-                print(f" {i} , {task}")
+                print(f"{i}.{task}")
+
+
+def remove_task(priority, task_number):
+    if priority == "1":
+        category = "Incidnetal"
+    elif priority == "2":
+        category = "Coordinated"
+    elif priority == "3":
+        category = "Planned"
+    else:
+        print("Invalid priority.")
+        return 
+    
+    if 0 < task_number <= len(tasks[category]):
+        removed = tasks[category].pop(task_number - 1)
+        print(f"Task '{removed}' removed successfully")
+    else:
+        print("INvalid task number.")
 
 
 
 
+while True:
+    print("\n==== TO-DO LIST MANAGER =====")
+    print("1. Add Task")
+    print("2, Remove Task")
+    print("3. Display Tasks")
+    print("4. Exit")
 
-def 
+    choice = input("choose an option (1-4):")
 
+
+
+    if choice == "1":
+        task_name = input("Enter the task name: ")
+        print("Select Priority")
+        print("1 - Incidental")
+        print("2 - Coordinated")
+        print("3 - Planned")
+        priority = input("Enter priority (1-3): ")
+        add_new_task(task_name, priority)
+
+
+    elif choice == "2":
+        display_task()
+        print("Select Priority Catefory: ")
+        print("1 - Incidental")
+        print("2 - Coordinated")
+        print("3 - Planned")
+        priority = input("Enter priority (1-3): ")
+        try:
+            task_number = int(input("Enter task number to remove: "))
+            remove_task(priority, task_number)
+
+        except ValueError:
+            print ("Please enter  valid number.")
+
+
+    elif choice == "3":
+        display_task()
+
+
+    elif choice == "4":
+        print("Exiting program. Goodbye!")
+        break
+    else:
+        print("Invalid option. Please choose 1-4.")
