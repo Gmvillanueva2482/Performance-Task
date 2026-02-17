@@ -3,14 +3,14 @@
 
 
 tasks = {
-"Incindental" : [],
+"Incidental" : [],
 "Coordinated": [],
 "Planned" : []
 }
 
 def add_new_task(task_name, priority):
     if priority == "1":
-       tasks["Incidnetal"].append(task_name)
+       tasks["Incidental"].append(task_name)
        print(f"Task '{task_name}' added to Incidental tasks.")
     elif priority == "2":
        tasks["Coordinated"].append(task_name)
