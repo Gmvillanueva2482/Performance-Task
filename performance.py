@@ -2,13 +2,13 @@
 # Purpose : To organize and prioritize tasks for the Performance Task
 
 
-tasks = {
+tasks = {                                           # This is our dictionary to store tasks based on their priority categories.
 "Incidental" : [],
 "Coordinated": [],
 "Planned" : []
 }
 
-def add_new_task(task_name, priority):
+def add_new_task(task_name, priority):             # This fucntion adds a new task to the appropriate category based on the priority input by the user. 
     if priority == "1":
        tasks["Incidental"].append(task_name)
        print(f"Task '{task_name}' added to Incidental tasks.")
@@ -22,7 +22,7 @@ def add_new_task(task_name, priority):
          print("Invalid priority, Please choose 1, 2, or 3.")
 
 
-def display_task():
+def display_task():                              # This function displays the current tasks in each category, showing the priority and the tasks under each category.
     print("\n--- Current To-Do List ---")
     for priority, task_list in tasks.items():
         print(f"\n{priority} Tasks:")
@@ -33,7 +33,7 @@ def display_task():
                 print(f"{i}.{task}")
 
 
-def remove_task(priority, task_number):
+def remove_task(priority, task_number):        # This function removes a task from the specified category based on the task number input by the user. It checks for valid priority and task number before removing the task.
     if priority == "1":
         category = "Incidental"
     elif priority == "2":
@@ -53,15 +53,15 @@ def remove_task(priority, task_number):
 
 
 
-while True:
+while True:                                            # This is the main Loop of the program, which continuously prompts the user for actions until they choose to exit. It handles user input for adding, removing, and displaying tasks, as well as exiting the program.
     print("\n==== TO-DO LIST MANAGER =====")
     print("1. Add Task")
     print("2, Remove Task")
     print("3. Display Tasks")
     print("4. Exit")
 
-    choice = input("choose an option (1-4):")
-
+    choice = input("choose an option (1-4):")         # This Line prompts the user to choose an option from the menu and stores their input in the variable "choice". The program will then execute the corresponding action based on the user's selection.
+ 
 
 
     if choice == "1":
