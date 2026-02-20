@@ -29,7 +29,7 @@ def display_task():                                              # This function
         if not task_list:
             print("(Empty)")
         else:
-            for i, task in enumerate(task_list, 1):
+            for i, task in enumerate(task_list, 1):             #This loops over an iterable and gets both the index and the element at the same time
                 print(f"{i}.{task}")
 
 
