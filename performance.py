@@ -76,7 +76,7 @@ while True:
 
     elif choice == "2":
         display_task()
-        print("Select Priority Catefory: ")
+        print("Select Priority Category: ")
         print("1 - Incidental")
         print("2 - Coordinated")
         print("3 - Planned")
