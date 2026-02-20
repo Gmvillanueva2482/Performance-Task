@@ -7,25 +7,25 @@ tasks = {
 "Coordinated": [],
 "Planned" : []
 }
-while True:
-    def add_new_task(task_name, priority):
-        if priority == "1":
-            tasks["Incidental"].append(task_name)
-            print(f"Task '{task_name}' added to Incidental tasks.")
-        elif priority == "2":
-            tasks["Coordinated"].append(task_name)
-            print(f"Task '{task_name}' added to Coordinated tasks.")
-        elif priority == "3":
-            tasks["Planned"].append(task_name)
-            print(f"Task '{task_name}' added to Planned tasks.")
-        else:
-            print("Invalid priority, Please choose 1, 2, or 3.")
+
+def add_new_task(task_name, priority):
+    if priority == "1":
+       tasks["Incidental"].append(task_name)
+       print(f"Task '{task_name}' added to Incidental tasks.")
+    elif priority == "2":
+       tasks["Coordinated"].append(task_name)
+       print(f"Task '{task_name}' added to Coordinated tasks.")
+    elif priority == "3":
+       tasks["Planned"].append(task_name)
+       print(f"Task '{task_name}' added to Planned tasks.")
+    else:
+         print("Invalid priority, Please choose 1, 2, or 3.")
 
 
-    def display_task():
-        print("\n--- Current To-Do List ---")
-        for priority, task_list in tasks.items():
-            print(f"\n{priority} Tasks:")
+def display_task():
+    print("\n--- Current To-Do List ---")
+    for priority, task_list in tasks.items():
+        print(f"\n{priority} Tasks:")
         if not task_list:
             print("(Empty)")
         else:
@@ -33,25 +33,27 @@ while True:
                 print(f"{i}.{task}")
 
 
-    def remove_task(priority, task_number):
-        if priority == "1":
-            category = "Incidental"
-        elif priority == "2":
-            category = "Coordinated"
-        elif priority == "3":
-            category = "Planned"
-        else:
-            print("Invalid priority.")
-        if 0 < task_number <= len(tasks[category]):
-            removed = tasks[category].pop(task_number - 1)
-            print(f"Task '{removed}' removed successfully")
-        else:
-            print("Invalid task number.")
+def remove_task(priority, task_number):
+    if priority == "1":
+        category = "Incidental"
+    elif priority == "2":
+        category = "Coordinated"
+    elif priority == "3":
+        category = "Planned"
+    else:
+        print("Invalid priority.")
+        return 
+    
+    if 0 < task_number <= len(tasks[category]):
+        removed = tasks[category].pop(task_number - 1)
+        print(f"Task '{removed}' removed successfully")
+    else:
+        print("Invalid task number.")
 
 
 
 
-
+while True:
     print("\n==== TO-DO LIST MANAGER =====")
     print("1. Add Task")
     print("2, Remove Task")
